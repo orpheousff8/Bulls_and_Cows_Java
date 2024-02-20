@@ -65,7 +65,7 @@ public class Main {
         System.out.println("Okay, let's start a game!");
 
         int turn = 1;
-        int bull = 0, cow;
+        int bull, cow;
 
         do {
             System.out.printf("Turn %d:\n", turn);
@@ -83,9 +83,8 @@ public class Main {
     }
 
     /**
-     *
      * @param secret -- the generated secret
-     * @param guess -- the input from user
+     * @param guess  -- the input from user
      * @return cows that overlapped with bulls; need to subtract with bull.
      */
     private static int countCow(String secret, String guess) {
