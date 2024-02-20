@@ -5,13 +5,13 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
-    private static final char[] dict = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+    private static final char[] DICT = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
             'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        int n=0, p=0;
+        int n = 0, p = 0;
 
         System.out.println("Input the length of the secret code:");
         try {
@@ -47,7 +47,7 @@ public class Main {
         while (true) {
             Random random = new Random();
             int r = random.nextInt(p);
-            char c = dict[r];
+            char c = DICT[r];
 
             if (secretBuilder.toString().contains(c + "")) {
                 continue;
@@ -82,6 +82,12 @@ public class Main {
         System.out.println("Congratulations! You guessed the secret code.");
     }
 
+    /**
+     *
+     * @param secret -- the generated secret
+     * @param guess -- the input from user
+     * @return cows that overlapped with bulls; need to subtract with bull.
+     */
     private static int countCow(String secret, String guess) {
         int count = 0;
 
@@ -137,11 +143,11 @@ public class Main {
         if (possibleSymbol == 1) {
             secretMessage += "0).";
         } else if (possibleSymbol <= 10) {
-            secretMessage += "0-" + dict[possibleSymbol - 1] + ").";
+            secretMessage += "0-" + DICT[possibleSymbol - 1] + ").";
         } else if (possibleSymbol == 11) {
             secretMessage += "0-9, a).";
         } else {
-            secretMessage += "0-9, a-" + dict[possibleSymbol - 1] + ").";
+            secretMessage += "0-9, a-" + DICT[possibleSymbol - 1] + ").";
         }
 
         return secretMessage;
